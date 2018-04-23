@@ -92,6 +92,12 @@
  */
 - (BOOL)isTextMessage;
 
+// Annie's Change
+/**
+ * Returns yes if the message is coming from the therapist and has a button
+ */
+- (BOOL)isTherapistIncomingMessageWithButton;
+
 /**
  *  This method is used to determine if the message data item contains text or media.
  *  If this method returns `YES`, an instance of `JSQMessagesViewController` will ignore 

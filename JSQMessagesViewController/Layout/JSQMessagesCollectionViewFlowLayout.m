@@ -582,6 +582,16 @@ const CGFloat kJSQMessagesCollectionViewAvatarSizeDefault = 30.0f;
                                                              options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)
                                                           attributes:@{ NSFontAttributeName : textFont ? textFont : self.messageBubbleFont} // Oana change
                                                              context:nil];
+        
+        // Annie's change
+        if ([messageItem isTherapistIncomingMessageWithButton] && ![messageItem isOutgoingMessage]) {
+            stringRect.size.width = maximumTextWidth - 16;
+            
+            int wordCount = [messageItem.text componentsSeparatedByString:@" "].count;
+            if (wordCount > 50) {
+                stringRect.size.height += 20;
+            }
+        }
 
         CGSize stringSize = CGRectIntegral(stringRect).size;
 
